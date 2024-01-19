@@ -1,0 +1,1396 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "book-directory",
+    "description": "",
+    "contact": {
+      "email": "adityatest821@gmail.com"
+    },
+    "version": "1.0.0",
+    "termsOfService": "http://swagger.io/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Operations about User",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Book",
+      "description": "Operations about Book",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": ""
+      }
+    },
+    {
+      "name": "Cart",
+      "description": "Operations about Cart",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": ""
+      }
+    },
+    {
+      "name": "Order",
+      "description": "Operations about Order",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": ""
+      }
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/user/signup": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Sign-Up",
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "formData",
+            "description": "firstName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "in": "formData",
+            "description": "lastName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dob",
+            "in": "formData",
+            "description": "DDMMYYYY Ex: 01012000",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "in": "formData",
+            "description": "gender",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "description": "confirmPassword",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "aboutUs",
+            "in": "formData",
+            "description": "aboutUs",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phoneNo",
+            "in": "formData",
+            "description": "phoneNo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "profileImage",
+            "in": "formData",
+            "description": "profileImage",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/login": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Login",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/validateOTP": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Login",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "OTP",
+            "in": "formData",
+            "description": "OTP",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/forgotPassword": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Login",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/resetPassword": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Login",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "description": "confirmPassword",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/editDetails": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Sign-Up",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "firstName",
+            "in": "formData",
+            "description": "firstName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "in": "formData",
+            "description": "lastName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "dob",
+            "in": "formData",
+            "description": "DDMMYYYY Ex: 01012000",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "in": "formData",
+            "description": "// 1 Male, 2 Female, 3 Transgender",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "aboutUs",
+            "in": "formData",
+            "description": "aboutUs",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phoneNo",
+            "in": "formData",
+            "description": "phoneNo",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/getUserDetails": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Sign-Up",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/list/allUsers": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "List of all the Books",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "formData",
+            "description": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "download",
+            "in": "formData",
+            "description": "Enter 1 for download",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Logout",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/deleteAccount": {
+      "delete": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "Logout",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isDelete",
+            "in": "formData",
+            "description": "Write 1 to delete your account",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/list/allAvailableBooks": {
+      "get": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "List of all the Books",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/addBookToStore": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "Add a Book",
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bookName",
+            "in": "formData",
+            "description": "bookName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorName",
+            "in": "formData",
+            "description": "authorName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isbnNum",
+            "in": "formData",
+            "description": "isbnNum",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "costPrice",
+            "in": "formData",
+            "description": "costPrice",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "// 0 = inactive, 1 = active",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "isDeleted",
+            "in": "formData",
+            "description": "// 0 = not-deleted, 1 = deleted",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "description": "description",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bookImage",
+            "in": "formData",
+            "description": "bookImage",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/deleteBookFromStore": {
+      "delete": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "Delete a Book from store",
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bookId",
+            "in": "formData",
+            "description": "bookId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/user/list/particularUserBooks": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "List of all the user Books",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "formData",
+            "description": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "formData",
+            "description": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "description": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "download",
+            "in": "formData",
+            "description": "Enter 1 for download",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/cart/addToCart": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "Cart"
+        ],
+        "description": "List of all the Books in Cart",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bookId",
+            "in": "formData",
+            "description": "bookId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "description": "quantity",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/cart/removeFromCart": {
+      "delete": {
+        "deprecated": false,
+        "tags": [
+          "Cart"
+        ],
+        "description": "Remove item from cart",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cartId",
+            "in": "formData",
+            "description": "cartId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/cart/myCartItems": {
+      "get": {
+        "deprecated": false,
+        "tags": [
+          "Cart"
+        ],
+        "description": "Items in cart",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/order/placeOrder": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "Order"
+        ],
+        "description": "List of all the Books in Cart",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cartId",
+            "in": "formData",
+            "description": "cartId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "description": "quantity",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/order/list/getParticularUserOrders": {
+      "get": {
+        "deprecated": false,
+        "tags": [
+          "Order"
+        ],
+        "description": "List of all the user Orders",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "formData",
+            "description": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "description": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "download",
+            "in": "formData",
+            "description": "Enter 1 for download",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/list/allAuthors": {
+      "get": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "List of all the Books",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/list/authorWiseBook": {
+      "get": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "List of all the Books",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorName",
+            "in": "query",
+            "description": "authorName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "formData",
+            "description": "page",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "formData",
+            "description": "limit",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    },
+    "/book/bulkAddBooksToStore": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "Book"
+        ],
+        "description": "Add a Book",
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accessToken",
+            "in": "header",
+            "description": "accessToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uploadFile",
+            "in": "formData",
+            "description": "uploadFile",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  }
+}
